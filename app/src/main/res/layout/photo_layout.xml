@@ -5,21 +5,14 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
-        android:text="Vous etes sur le layout photo"
-        android:textSize="16pt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView" />
-
     <SurfaceView
         android:layout_width="match_parent"
         android:id="@+id/photo_surfaceView"
-        android:layout_height="344dp"
+        android:layout_height="0dp"
         android:layout_weight="0.76" />
 
     <Button
-        android:text="Capturer !"
+        android:text="Prendre une photo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/capture_Button"

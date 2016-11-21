@@ -14,9 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Photo_button"
-        android:text="Prendre une photo !"
-        android:layout_below="@+id/Gallery_Button"
-        android:layout_centerHorizontal="true" />
+        android:text="Appareil"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/Pictures_ImageView"
@@ -27,7 +28,7 @@
     </ImageView>
 
     <Button
-        android:text="Récupérer une photo depuis ma librairie !"
+        android:text="galerie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Gallery_Button"
