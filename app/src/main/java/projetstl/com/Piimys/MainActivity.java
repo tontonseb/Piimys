@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ public class MainActivity extends Activity {
     private static int LOAD_IMAGE = 1;
     private String ImageString;
     private int READ_PERMISSION = 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    public ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +50,13 @@ public class MainActivity extends Activity {
                 Log.i("Photo Button","User clicked the photo Button");
                 setContentView(R.layout.photo_layout);
 
-                //TODO Utilisation de la classe photo
+                dispatchTakePictureIntent();
+
             }
             });
     }
 
-    protected void onActivityResult ( int requestCode, int resultCode, Intent data){
+    protected void onActivityResult ( int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
             // When an Image is picked
@@ -78,12 +82,25 @@ public class MainActivity extends Activity {
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(BitmapFactory.decodeFile(ImageString));
 
-            } else {
+            } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                mImageView = (ImageView) findViewById(R.id.photo_surfaceView);
+                mImageView.setImageBitmap(imageBitmap);
+            } else if (requestCode == LOAD_IMAGE) {
                 Toast.makeText(this, "Choissisez une image", Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             Toast.makeText(this, "Problème détecté", Toast.LENGTH_LONG).show();
+            Log.i("ZBOUB", "onActivityResult: "+e.getMessage());
+        }
+    }
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 }
+
 

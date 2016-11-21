@@ -1,6 +1,8 @@
 package projetstl.com.Piimys;
 
-public class  Gallery {
+import android.app.Activity;
+
+public class  Gallery extends Activity{
 
 
 }
