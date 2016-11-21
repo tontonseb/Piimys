@@ -1,4 +1,4 @@
-package projetstl.com.imagerecognizer;
+package projetstl.com.Piimys;
 
 import android.Manifest;
 import android.app.Activity;
@@ -14,8 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import static android.R.attr.data;
 
 
 public class MainActivity extends Activity {
@@ -49,7 +47,7 @@ public class MainActivity extends Activity {
                 Log.i("Photo Button","User clicked the photo Button");
                 setContentView(R.layout.photo_layout);
 
-                //TODO ajout link vers classe Photo.java
+                //TODO Utilisation de la classe photo
             }
             });
     }
@@ -81,7 +79,7 @@ public class MainActivity extends Activity {
                 imgView.setImageBitmap(BitmapFactory.decodeFile(ImageString));
 
             } else {
-                Toast.makeText(this, "Vous n'avez pas selectionné d'images !", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Choissisez une image", Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             Toast.makeText(this, "Problème détecté", Toast.LENGTH_LONG).show();

@@ -1,4 +1,4 @@
-package projetstl.com.imagerecognizer;
+package projetstl.com.Piimys;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("projetstl.com.imagerecognizer", appContext.getPackageName());
+        assertEquals("projetstl.com.Piimys", appContext.getPackageName());
     }
 }

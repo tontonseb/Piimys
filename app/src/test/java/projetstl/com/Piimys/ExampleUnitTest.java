@@ -1,4 +1,4 @@
-package projetstl.com.imagerecognizer;
+package projetstl.com.Piimys;
 
 import org.junit.Test;
 
